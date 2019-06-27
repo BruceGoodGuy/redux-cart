@@ -7,25 +7,28 @@ let initialState = [
         image: '',
         description: 'Apple',
         price: 500,
-        inventory: 10
+        inventory: 10,
+        rating: 3
 
     },
     {
         id: 2,
-        name: 'I Phone 7 Plus',
+        name: 'I Phone 8 Plus',
         image: '',
         description: 'Apple',
         price: 500,
-        inventory: 10
+        inventory: 10,
+        rating: 4
 
     },
     {
         id: 3,
-        name: 'I Phone 7 Plus',
+        name: 'I Phone 9 Plus',
         image: '',
         description: 'Apple',
         price: 500,
-        inventory: 10
+        inventory: 10,
+        rating: 5
 
     }
 ];
