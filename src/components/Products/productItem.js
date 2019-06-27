@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+const cryptoRandomString = require('crypto-random-string');
 class ProductItem extends Component {
   render(){
       var {product} = this.props
@@ -29,7 +30,7 @@ class ProductItem extends Component {
             <div className="card-footer">
                 <span className="left">{product.price}$</span>
                 <span className="right">
-                    <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart">
+                    <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" onClick={()=>{this.addToCart(product)}}>
                         <i className="fa fa-shopping-cart"></i>
                     </a>
                 </span>
@@ -39,15 +40,17 @@ class ProductItem extends Component {
 </div>)
   }
 
+  addToCart = (product) => {
+      this.props.onAddToCart(product)
+  }
   showRating = (star) => {
-      console.log(star);
       var result = [];
       if(star>0){
           for(var i = 1; i<= star; i ++){
-              result.push(<i className="fa fa-star"></i>)
+              result.push(<i className="fa fa-star" key={cryptoRandomString({length: 10})}></i>)
           }
           for(var j = 1; j<= ( 5 - star); j++){
-              result.push(<i className="fa fa-star-o"></i>)
+              result.push(<i className="fa fa-star-o" key={cryptoRandomString({length: 10})}></i>)
           }
       }
       return result;
